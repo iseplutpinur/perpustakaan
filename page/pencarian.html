@@ -95,17 +95,18 @@
         <script>
             const tbl1 = document.querySelector("#tbl1");
             let strtbl = ``;
-            DataSource.forEach(dtbuku => {
+            let no = 0;
+            DataSource.buku.forEach(dtbuku => {
+                no++;
                 strtbl += `                  <tr>
-                                                <td>${dtbuku.id}</td>
-                                                <td>${dtbuku.kdbuku}</td>
-                                                <td>${dtbuku.nmbuku}</td>
-                                                <td>${dtbuku.penulis}</td>
-                                                <td>${dtbuku.penerbit}</td>
-                                                <td>${dtbuku.tahun}</td>
+                                                <td>${no}</td>
+                                                <td>${dtbuku.ID_BUKU}</td>
+                                                <td>${dtbuku.TITLE}</td>
+                                                <td>${dtbuku.AUTHOR}</td>
+                                                <td>${dtbuku.PUBLISHER}</td>
+                                                <td>${dtbuku.YEAR}</td>
                                             </tr>`;
             });
-            console.log(tbl1);
             tbl1.innerHTML = strtbl;
         </script>
 
