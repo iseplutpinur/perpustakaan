@@ -398,6 +398,30 @@
     </div>
 
 
+    <!-- Modal Edit -->
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true" id="ModalDelete">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ModalDeleteLabel">Edit Data Pengguna</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body isidelete">
+                    <div class="container-fluid">
+                        <h3>Yakin akan menghapus anggota <b></b> .. ?</h3>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+                    <a class="btn btn-danger" href="#">Hapus</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Bootstrap core JavaScript-->
     <script src="../../assets/vendor/jquery/jquery.min.js"></script>
     <script src="../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -439,6 +463,11 @@
             no_telepon.value = anggota.TELP;
             alamat.value = anggota.ALAMAT;
         }
+
+        function deleteHandle(nama) {
+            document.querySelector(".isidelete").innerHTML = `<h4>Yakin akan menghapus data anggota <b>${nama}</b> .. ?</h4> `;
+        }
+
         const tbl1 = document.getElementById("tbl1");
         let strtbl = ``;
         let no = 0;
@@ -455,7 +484,7 @@
     <button class="btn btn-success btn-xs" onclick="editHandle('${dtbuku.ID_ANGGOTA}')"  data-toggle="modal" data-target="#ModalEdit">
         <i class="fa fa-edit"> Edit</i>
     </button>
-    <button class="btn btn-danger btn-xs">
+    <button class="btn btn-danger btn-xs" onclick="deleteHandle('${dtbuku.FULL_NAME}')"  data-toggle="modal" data-target="#ModalDelete">
         <i class="fa fa-trash"> Delete</i>
     </button>
                                                 </td>
