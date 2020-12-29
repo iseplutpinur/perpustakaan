@@ -1039,3 +1039,13 @@ function getBukuById(id = false) {
     }
     return result;
 }
+
+function getAdminById(id = false) {
+    let result = null;
+    if (id) {
+        DataSource.admin.forEach(element => {
+            if (element.ID_ADMIN == id) result = element;
+        });
+    }
+    return result;
+}

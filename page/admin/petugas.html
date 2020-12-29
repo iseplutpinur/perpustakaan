@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Anggota - Aplikasi Perpustakaan</title>
+    <title>Petugas - Aplikasi Perpustakaan</title>
 
     <!-- Custom fonts for this template-->
     <link href="../../assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -58,7 +58,7 @@
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="anggota.html">
                     <i class="fas fa-fw fa-users"></i>
                     <span>Anggota</span></a>
@@ -70,7 +70,7 @@
                     <span>Buku</span></a>
             </li>
 
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="petugas.html">
                     <i class="fas fa-fw fa-user"></i>
                     <span>Petugas</span></a>
@@ -169,16 +169,16 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Data master / Anggota</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Data master / Petugas</h1>
                     </div>
 
                     <div class="card shadow mb-4">
                         <div class="card-header py-3 d-flex justify-content-between">
                             <h4 class="m-0 font-weight-bold text-primary">
-                                List Anggota
+                                List Petugas
                             </h4>
                             <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modaltambah">Tambah
-                                Anggota</a>
+                                Petugas</a>
                         </div>
                         <div class="card-body">
                             <div class="table">
@@ -187,11 +187,11 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Kode</th>
-                                            <th>Nama</th>
-                                            <th>Tempat Lahir</th>
-                                            <th>Tanggal Lahir</th>
-                                            <th>Jenis Kelamin</th>
+                                            <th>Nama Lengkap</th>
+                                            <th>Username</th>
+                                            <th>Password</th>
+                                            <th>Role</th>
+                                            <th>Last Login</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -254,64 +254,39 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Tambah Data Pengguna</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Tambah Data Petugas</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="nama_lengkap">Nama Lengkap</label>
-                                    <input type="text" class="form-control" id="nama_lengkap"
-                                        aria-describedby="nama_lengkap_label" placeholder="Nama Lengkap">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="tempat_lahir">Tempat Lahir</label>
-                                    <input type="text" class="form-control" id="tempat_lahir"
-                                        aria-describedby="tempat_lahir_label" placeholder="Tempat Lahir">
-                                </div>
-                            </div>
+                        <div class="form-group">
+                            <label for="nama_lengkap">Nama Lengkap</label>
+                            <input type="text" class="form-control" id="nama_lengkap"
+                                aria-describedby="nama_lengkap_label" placeholder="Nama Lengkap">
                         </div>
-
-
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="tanggal_lahir">Tanggal Lahir</label>
-                                    <input type="date" class="form-control" id="tanggal_lahir"
-                                        aria-describedby="tanggal_lahir_label" placeholder="Tempat Lahir">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="jenisKelamin">Jenis Kelqmin</label>
-                                    <select class="form-control" id="jenisKelamin">
-                                        <option>Laki-Laki</option>
-                                        <option>Perempuan</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="no_telepon">Nomor Telepon</label>
-                                    <input type="text" class="form-control" id="no_telepon"
-                                        aria-describedby="no_telepon_label" placeholder="Contoh: +6285798132505">
-                                </div>
-                            </div>
+                        <div class="form-group">
+                            <label for="role">Role</label>
+                            <select class="form-control" id="role">
+                                <option>Petugas</option>
+                                <option>Admin</option>
+                            </select>
                         </div>
-
-                        <div class="row">
-                            <div class="col-md">
-                                <div class="form-group">
-                                    <label for="alamat">Alamat Lengkap</label>
-                                    <textarea class="form-control" id="alamat" rows="3"></textarea>
-                                </div>
-                            </div>
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" id="username" aria-describedby="username_label"
+                                placeholder="Username">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" aria-describedby="password_label"
+                                placeholder="Password">
+                        </div>
+                        <div class="form-group">
+                            <label for="password1">Ulangi Password</label>
+                            <input type="password1" class="form-control" id="password1"
+                                aria-describedby="password1_label" placeholder="Ulangi Password">
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -329,83 +304,46 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="ModalEditLabel">Edit Data Pengguna</h5>
+                    <h5 class="modal-title" id="ModalEditLabel">Ubah Data Pengguna</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="edit_nama_lengkap">Nama Lengkap</label>
-                                    <input type="text" class="form-control" id="edit_nama_lengkap"
-                                        aria-describedby="edit_nama_lengkap_label" placeholder="Nama Lengkap">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="edit_tempat_lahir">Tempat Lahir</label>
-                                    <input type="text" class="form-control" id="edit_tempat_lahir"
-                                        aria-describedby="edit_tempat_lahir_label" placeholder="Tempat Lahir">
-                                </div>
-                            </div>
+                        <div class="form-group">
+                            <label for="edit_nama_lengkap">Nama Lengkap</label>
+                            <input type="text" class="form-control" id="edit_nama_lengkap"
+                                aria-describedby="nama_lengkap_label" placeholder="Nama Lengkap">
                         </div>
-
-
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="edit_tanggal_lahir">Tanggal Lahir</label>
-                                    <input type="date" class="form-control" id="edit_tanggal_lahir"
-                                        aria-describedby="edit_tanggal_lahir_label" placeholder="Tempat Lahir">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="edit_jenis_kelamin">Jenis Kelqmin</label>
-                                    <select class="form-control" id="edit_jenis_kelamin">
-                                        <option value="L">Laki-Laki</option>
-                                        <option value="P">Perempuan</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="edit_no_telepon">Nomor Telepon</label>
-                                    <input type="text" class="form-control" id="edit_no_telepon"
-                                        aria-describedby="edit_no_telepon_label" placeholder="Contoh: +6285798132505">
-                                </div>
-                            </div>
+                        <div class="form-group">
+                            <label for="edit_role">Role</label>
+                            <select class="form-control" id="edit_role">
+                                <option value="admin">Petugas</option>
+                                <option value="superadmin">Admin</option>
+                            </select>
                         </div>
-
-                        <div class="row">
-                            <div class="col-md">
-                                <div class="form-group">
-                                    <label for="edit_alamat">Alamat Lengkap</label>
-                                    <textarea class="form-control" id="edit_alamat" rows="3"></textarea>
-                                </div>
-                            </div>
+                        <div class="form-group">
+                            <label for="edit_username">Username</label>
+                            <input type="text" class="form-control" id="edit_username" aria-describedby="username_label"
+                                placeholder="Username">
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
-                        <a class="btn btn-primary" href="#">Edit</a>
+                        <a class="btn btn-primary" href="#">Ubah</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-
-    <!-- Modal Edit -->
     <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
         aria-hidden="true" id="ModalDelete">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="ModalDeleteLabel">Edit Data Pengguna</h5>
+                    <h5 class="modal-title" id="ModalDeleteLabel">Hapus Data Petugas</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
@@ -418,6 +356,29 @@
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
                     <a class="btn btn-danger" href="#">Hapus</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true" id="ModalReset">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ModalResetLabel">Reset Passowrd Petugas</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body isireset">
+                    <div class="container-fluid">
+                        <h3>Yakin akan menghapus anggota <b></b> .. ?</h3>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+                    <a class="btn btn-danger" href="#">Reset</a>
                 </div>
             </div>
         </div>
@@ -445,48 +406,43 @@
             return result;
         }
 
-        function editHandle(id_anggota = null) {
-            const anggota = getAnggotaById(id_anggota);
+        function editHandle(id = null) {
+            const admin = getAdminById(id);
 
-            const nama_lengkap = document.querySelector("#edit_nama_lengkap");
-            const tempat_lahir = document.querySelector("#edit_tempat_lahir");
-            const tanggal_lahir = document.querySelector("#edit_tanggal_lahir");
-            const jenis_kelamin = document.querySelector("#edit_jenis_kelamin");
-            const no_telepon = document.querySelector("#edit_no_telepon");
-            const alamat = document.querySelector("#edit_alamat");
-            nama_lengkap.value = anggota.FULL_NAME;
-            tempat_lahir.value = anggota.TMP_LAHIR;
-
-            const tgl = anggota.TGL_LAHIR.split("/");
-
-            tanggal_lahir.value = `${tgl[2]}-${tgl[0]}-${tgl[1]}`;
-            jenis_kelamin.value = anggota.GENDER;
-            no_telepon.value = anggota.TELP;
-            alamat.value = anggota.ALAMAT;
+            document.querySelector("#edit_nama_lengkap").value = admin.FULLNAME;
+            document.querySelector("#edit_username").value = admin.USERNAME;
+            document.querySelector("#edit_role").value = admin.ROLE;
         }
 
         function deleteHandle(nama) {
-            document.querySelector(".isidelete").innerHTML = `<h4>Yakin akan menghapus data anggota <b>${nama}</b> .. ?</h4> `;
+            document.querySelector(".isidelete").innerHTML = `<h4>Yakin akan menghapus data petugas <b>${nama}</b> .. ?</h4> `;
+        }
+
+        function resetHandle(nama) {
+            document.querySelector(".isireset").innerHTML = `<h4>Yakin akan mereset pasword petugas <b>${nama}</b> menjadi perpus1234?</h4> `;
         }
 
         const tbl1 = document.getElementById("tbl1");
         let strtbl = ``;
         let no = 0;
-        DataSource.anggota.slice().reverse().forEach(dtbuku => {
+        DataSource.admin.slice().reverse().forEach(dtpetugas => {
             no++;
             strtbl += `                  <tr>
                                             <td>${no}</td>
-                                            <td>${dtbuku.ID_ANGGOTA}</td>
-                                            <td>${dtbuku.FULL_NAME}</td>
-                                            <td>${dtbuku.TMP_LAHIR}</td>
-                                            <td>${dtbuku.TGL_LAHIR}</td>
-                                            <td>${descJK(dtbuku.GENDER)}</td>
+                                            <td>${dtpetugas.FULLNAME}</td>
+                                            <td>${dtpetugas.USERNAME}</td>
+                                            <td>${dtpetugas.PASSWORD}</td>
+                                            <td>${dtpetugas.ROLE}</td>
+                                            <td>${dtpetugas.LAST_LOGIN}</td>
                                             <td>
-    <button class="btn btn-success btn-xs" onclick="editHandle('${dtbuku.ID_ANGGOTA}')"  data-toggle="modal" data-target="#ModalEdit">
-        <i class="fa fa-edit"> Edit</i>
+    <button class="btn btn-success btn-xs" onclick="editHandle('${dtpetugas.ID_ADMIN}')"  data-toggle="modal" data-target="#ModalEdit">
+        <i class="fa fa-edit"> Ubah</i>
     </button>
-    <button class="btn btn-danger btn-xs" onclick="deleteHandle('${dtbuku.FULL_NAME}')"  data-toggle="modal" data-target="#ModalDelete">
-        <i class="fa fa-trash"> Delete</i>
+    <button class="btn btn-danger btn-xs" onclick="deleteHandle('${dtpetugas.FULLNAME}')"  data-toggle="modal" data-target="#ModalDelete">
+        <i class="fa fa-trash"> Hapus</i>
+    </button>
+    <button class="btn btn-warning btn-xs" onclick="resetHandle('${dtpetugas.FULLNAME}')"  data-toggle="modal" data-target="#ModalReset">
+        <i class="fa fa-key"> Reset Password</i>
     </button>
                                                 </td>
                                         </tr>`;
