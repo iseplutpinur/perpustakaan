@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Anggota - Aplikasi Perpustakaan</title>
+    <title>Buku - Aplikasi Perpustakaan</title>
 
     <!-- Custom fonts for this template-->
     <link href="../../assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -58,13 +58,13 @@
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item active">
+            <li class="nav-item ">
                 <a class="nav-link" href="anggota.html">
                     <i class="fas fa-fw fa-users"></i>
                     <span>Anggota</span></a>
             </li>
 
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="buku.html">
                     <i class="fas fa-fw fa-book"></i>
                     <span>Buku</span></a>
@@ -169,16 +169,16 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Data master / Anggota</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Data master / Buku</h1>
                     </div>
 
                     <div class="card shadow mb-4">
                         <div class="card-header py-3 d-flex justify-content-between">
                             <h4 class="m-0 font-weight-bold text-primary">
-                                List Anggota
+                                List Buku
                             </h4>
                             <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modaltambah">Tambah
-                                Anggota</a>
+                                Buku</a>
                         </div>
                         <div class="card-body">
                             <div class="table">
@@ -188,10 +188,12 @@
                                         <tr>
                                             <th>No</th>
                                             <th>Kode</th>
-                                            <th>Nama</th>
-                                            <th>Tempat Lahir</th>
-                                            <th>Tanggal Lahir</th>
-                                            <th>Jenis Kelamin</th>
+                                            <th>Judul Buku</th>
+                                            <th>Penulis</th>
+                                            <th>Penerbit</th>
+                                            <th>Tahun</th>
+                                            <th>Jumlah</th>
+                                            <th>Dipinjam</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -254,7 +256,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Tambah Data Pengguna</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Tambah Data Buku</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
@@ -264,52 +266,39 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="nama_lengkap">Nama Lengkap</label>
-                                    <input type="text" class="form-control" id="nama_lengkap"
-                                        aria-describedby="nama_lengkap_label" placeholder="Nama Lengkap">
+                                    <label for="nama_buku">Nama Buku</label>
+                                    <input type="text" class="form-control" id="nama_buku"
+                                        aria-describedby="nama_buku_label" placeholder="Nama Buku">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="tempat_lahir">Tempat Lahir</label>
-                                    <input type="text" class="form-control" id="tempat_lahir"
-                                        aria-describedby="tempat_lahir_label" placeholder="Tempat Lahir">
+                                    <label for="nama_penulis">Nama Penulis</label>
+                                    <input type="text" class="form-control" id="nama_penulis"
+                                        aria-describedby="nama_penulis_label" placeholder="Nama Penulis">
                                 </div>
                             </div>
                         </div>
-
-
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="tanggal_lahir">Tanggal Lahir</label>
-                                    <input type="date" class="form-control" id="tanggal_lahir"
-                                        aria-describedby="tanggal_lahir_label" placeholder="Tempat Lahir">
+                                    <label for="penerbit">Penerbit</label>
+                                    <input type="text" class="form-control" id="penerbit"
+                                        aria-describedby="penerbit_label" placeholder="Penerbit">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="jenisKelamin">Jenis Kelqmin</label>
-                                    <select class="form-control" id="jenisKelamin">
-                                        <option>Laki-Laki</option>
-                                        <option>Perempuan</option>
-                                    </select>
+                                    <label for="tahun">Tahun</label>
+                                    <input type="number" class="form-control" id="tahun" aria-describedby="tahun_label"
+                                        placeholder="Tahun">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="no_telepon">Nomor Telepon</label>
-                                    <input type="text" class="form-control" id="no_telepon"
-                                        aria-describedby="no_telepon_label" placeholder="Contoh: +6285798132505">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md">
-                                <div class="form-group">
-                                    <label for="alamat">Alamat Lengkap</label>
-                                    <textarea class="form-control" id="alamat" rows="3"></textarea>
+                                    <label for="jumlah">Jumlah</label>
+                                    <input type="number" class="form-control" id="jumlah"
+                                        aria-describedby="jumlah_label" placeholder="Jumlah buku">
                                 </div>
                             </div>
                         </div>
@@ -329,7 +318,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="ModalEditLabel">Edit Data Pengguna</h5>
+                    <h5 class="modal-title" id="ModalEditLabel">Edit Data Buku</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
@@ -339,52 +328,39 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="edit_nama_lengkap">Nama Lengkap</label>
-                                    <input type="text" class="form-control" id="edit_nama_lengkap"
-                                        aria-describedby="edit_nama_lengkap_label" placeholder="Nama Lengkap">
+                                    <label for="edit_nama_buku">Nama Buku</label>
+                                    <input type="text" class="form-control" id="edit_nama_buku"
+                                        aria-describedby="edit_nama_buku_label" placeholder="Nama Buku">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="edit_tempat_lahir">Tempat Lahir</label>
-                                    <input type="text" class="form-control" id="edit_tempat_lahir"
-                                        aria-describedby="edit_tempat_lahir_label" placeholder="Tempat Lahir">
+                                    <label for="edit_nama_penulis">Nama Penulis</label>
+                                    <input type="text" class="form-control" id="edit_nama_penulis"
+                                        aria-describedby="edit_nama_penulis_label" placeholder="Nama Penulis">
                                 </div>
                             </div>
                         </div>
-
-
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="edit_tanggal_lahir">Tanggal Lahir</label>
-                                    <input type="date" class="form-control" id="edit_tanggal_lahir"
-                                        aria-describedby="edit_tanggal_lahir_label" placeholder="Tempat Lahir">
+                                    <label for="edit_penerbit">Penerbit</label>
+                                    <input type="text" class="form-control" id="edit_penerbit"
+                                        aria-describedby="edit_penerbit_label" placeholder="Penerbit">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="edit_jenis_kelamin">Jenis Kelqmin</label>
-                                    <select class="form-control" id="edit_jenis_kelamin">
-                                        <option value="L">Laki-Laki</option>
-                                        <option value="P">Perempuan</option>
-                                    </select>
+                                    <label for="edit_tahun">Tahun</label>
+                                    <input type="number" class="form-control" id="edit_tahun"
+                                        aria-describedby="tahun_label" placeholder="Tahun">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="edit_no_telepon">Nomor Telepon</label>
-                                    <input type="text" class="form-control" id="edit_no_telepon"
-                                        aria-describedby="edit_no_telepon_label" placeholder="Contoh: +6285798132505">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md">
-                                <div class="form-group">
-                                    <label for="edit_alamat">Alamat Lengkap</label>
-                                    <textarea class="form-control" id="edit_alamat" rows="3"></textarea>
+                                    <label for="edit_jumlah">Jumlah</label>
+                                    <input type="number" class="form-control" id="edit_jumlah"
+                                        aria-describedby="jumlah_label" placeholder="Jumlah buku">
                                 </div>
                             </div>
                         </div>
@@ -405,14 +381,14 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="ModalDeleteLabel">Edit Data Pengguna</h5>
+                    <h5 class="modal-title" id="ModalDeleteLabel">Edit Data Buku</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body isidelete">
                     <div class="container-fluid">
-                        <h3>Yakin akan menghapus anggota <b></b> .. ?</h3>
+                        <h3>Yakin akan menghapus buku <b></b> .. ?</h3>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -445,47 +421,40 @@
             return result;
         }
 
-        function editHandle(id_anggota = null) {
-            const anggota = getAnggotaById(id_anggota);
+        function editHandle(id_buku = null) {
+            const buku = getBukuById(id_buku);
 
-            const nama_lengkap = document.querySelector("#edit_nama_lengkap");
-            const tempat_lahir = document.querySelector("#edit_tempat_lahir");
-            const tanggal_lahir = document.querySelector("#edit_tanggal_lahir");
-            const jenis_kelamin = document.querySelector("#edit_jenis_kelamin");
-            const no_telepon = document.querySelector("#edit_no_telepon");
-            const alamat = document.querySelector("#edit_alamat");
-            nama_lengkap.value = anggota.FULL_NAME;
-            tempat_lahir.value = anggota.TMP_LAHIR;
-
-            const tgl = anggota.TGL_LAHIR.split("/");
-
-            tanggal_lahir.value = `${tgl[2]}-${tgl[0]}-${tgl[1]}`;
-            jenis_kelamin.value = anggota.GENDER;
-            no_telepon.value = anggota.TELP;
-            alamat.value = anggota.ALAMAT;
+            document.querySelector("#edit_nama_buku").value = buku.TITLE;
+            document.querySelector("#edit_nama_penulis").value = buku.AUTHOR;
+            document.querySelector("#edit_penerbit").value = buku.PUBLISHER;
+            document.querySelector("#edit_tahun").value = buku.QTY;
+            document.querySelector("#edit_jumlah").value = buku.YEAR;
         }
 
         function deleteHandle(nama) {
-            document.querySelector(".isidelete").innerHTML = `<h4>Yakin akan menghapus data anggota <b>${nama}</b> .. ?</h4> `;
+            document.querySelector(".isidelete").innerHTML = `<h4>Yakin akan menghapus data buku <b>${nama}</b> .. ?</h4> `;
         }
 
         const tbl1 = document.getElementById("tbl1");
         let strtbl = ``;
         let no = 0;
-        DataSource.anggota.slice().reverse().forEach(dtbuku => {
+        DataSource.buku.slice().reverse().forEach(dtbuku => {
             no++;
-            strtbl += `                  <tr>
+            strtbl += `         
+            <tr>
                                             <td>${no}</td>
-                                            <td>${dtbuku.ID_ANGGOTA}</td>
-                                            <td>${dtbuku.FULL_NAME}</td>
-                                            <td>${dtbuku.TMP_LAHIR}</td>
-                                            <td>${dtbuku.TGL_LAHIR}</td>
-                                            <td>${descJK(dtbuku.GENDER)}</td>
+                                            <td>${dtbuku.ID_BUKU}</td>
+                                            <td>${dtbuku.TITLE}</td>
+                                            <td>${dtbuku.AUTHOR}</td>
+                                            <td>${dtbuku.PUBLISHER}</td>
+                                            <td>${dtbuku.YEAR}</td>
+                                            <td>${dtbuku.QTY}</td>
+                                            <td>${dtbuku.KELUAR}</td>
                                             <td>
-    <button class="btn btn-success btn-xs" onclick="editHandle('${dtbuku.ID_ANGGOTA}')"  data-toggle="modal" data-target="#ModalEdit">
+    <button class="btn btn-success btn-xs" onclick="editHandle('${dtbuku.ID_BUKU}')"  data-toggle="modal" data-target="#ModalEdit">
         <i class="fa fa-edit"> Edit</i>
     </button>
-    <button class="btn btn-danger btn-xs" onclick="deleteHandle('${dtbuku.FULL_NAME}')"  data-toggle="modal" data-target="#ModalDelete">
+    <button class="btn btn-danger btn-xs" onclick="deleteHandle('${dtbuku.TITLE}')"  data-toggle="modal" data-target="#ModalDelete">
         <i class="fa fa-trash"> Delete</i>
     </button>
                                                 </td>

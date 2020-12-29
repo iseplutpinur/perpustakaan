@@ -1029,3 +1029,13 @@ function getAnggotaById(id = false) {
     }
     return result;
 }
+
+function getBukuById(id = false) {
+    let result = null;
+    if (id) {
+        DataSource.buku.forEach(element => {
+            if (element.ID_BUKU == id) result = element;
+        });
+    }
+    return result;
+}
