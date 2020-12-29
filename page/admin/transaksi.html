@@ -58,7 +58,7 @@
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="anggota.html">
                     <i class="fas fa-fw fa-users"></i>
                     <span>Anggota</span></a>
@@ -85,7 +85,7 @@
             </div>
 
             <!-- Nav Item - Tables -->
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="transaksi.html">
                     <i class="fa fa-fw fa-copy"></i>
                     <span>Transaksi</span></a>
@@ -184,7 +184,20 @@
                                     </h6>
                                 </div>
                                 <div class="card-body">
-
+                                    <table id="dataTable" class="table table-bordered table-hover table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Kode</th>
+                                                <th>Nama Peminjam</th>
+                                                <th>Tanggal Pinjam</th>
+                                                <th>Petugas</th>
+                                                <th>Jumlah</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tbl1">
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
 
@@ -194,7 +207,20 @@
                                     </h6>
                                 </div>
                                 <div class="card-body">
-
+                                    <table id="dataTable1" class="table table-bordered table-hover table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Kode</th>
+                                                <th>Nama Peminjam</th>
+                                                <th>Tanggal Pinjam</th>
+                                                <th>Petugas</th>
+                                                <th>Jumlah</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tbl2">
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
 
@@ -262,34 +288,58 @@
 
     <script>
         const tbl1 = document.getElementById("tbl1");
+        const tbl2 = document.getElementById("tbl2");
         let strtbl = ``;
         let no = 0;
-        DataSource.anggota.slice().reverse().forEach(dtbuku => {
-            no++;
-            strtbl += `                  <tr>
-                                            <td>${no}</td>
-                                            <td>${dtbuku.ID_ANGGOTA}</td>
-                                            <td>${dtbuku.FULL_NAME}</td>
-                                            <td>${dtbuku.TMP_LAHIR}</td>
-                                            <td>${dtbuku.TGL_LAHIR}</td>
-                                            <td>${descJK(dtbuku.GENDER)}</td>
-                                            <td>
-    <button class="btn btn-success btn-xs" onclick="editHandle('${dtbuku.ID_ANGGOTA}')"  data-toggle="modal" data-target="#ModalEdit">
-        <i class="fa fa-edit"> Edit</i>
-    </button>
-    <button class="btn btn-danger btn-xs" onclick="deleteHandle('${dtbuku.FULL_NAME}')"  data-toggle="modal" data-target="#ModalDelete">
-        <i class="fa fa-trash"> Delete</i>
-    </button>
-                                                </td>
-                                        </tr>`;
+        DataSource.peminjaman.slice().reverse().forEach(dtpeminjaman => {
+            if (dtpeminjaman.STATS != "Sudah Kembali") {
+                no++;
+                strtbl += `      
+                <tr>
+                                                <td>${no}</td>
+                                                <td>${dtpeminjaman.ID_PINJAM}</td>
+                                                <td>${dtpeminjaman.ID_ANGGOTA}</td>
+                                                <td>${dtpeminjaman.TGL_PINJAM}</td>
+                                                <td>${dtpeminjaman.ID_ADMIN}</td>
+                                                <td>${dtpeminjaman.JML_BUKU}</td>
+                                            </tr>`;
+            }
         });
 
         tbl1.innerHTML = strtbl;
+
+        strtbl = ``;
+        no = 0;
+        DataSource.peminjaman.slice().reverse().forEach(dtpeminjaman => {
+            if (dtpeminjaman.STATS == "Sudah Kembali") {
+                no++;
+                strtbl += `      
+                <tr>
+                                                <td>${no}</td>
+                                                <td>${dtpeminjaman.ID_PINJAM}</td>
+                                                <td>${dtpeminjaman.ID_ANGGOTA}</td>
+                                                <td>${dtpeminjaman.TGL_PINJAM}</td>
+                                                <td>${dtpeminjaman.ID_ADMIN}</td>
+                                                <td>${dtpeminjaman.JML_BUKU}</td>
+                                            </tr>`;
+            }
+        });
+
+        tbl2.innerHTML = strtbl;
 
 
         // Call the dataTables jQuery plugin
         $(document).ready(function () {
             $('#dataTable').DataTable({
+                "paging": true,
+                "lengthChange": true,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "autoWidth": true,
+                "responsive": true,
+            });
+            $('#dataTable1').DataTable({
                 "paging": true,
                 "lengthChange": true,
                 "searching": true,
