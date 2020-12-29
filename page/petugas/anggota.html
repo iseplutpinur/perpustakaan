@@ -58,7 +58,7 @@
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="anggota.html">
                     <i class="fas fa-fw fa-users"></i>
                     <span>Anggota</span></a>
@@ -85,7 +85,7 @@
             </div>
 
             <!-- Nav Item - Tables -->
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="transaksi.html">
                     <i class="fa fa-fw fa-copy"></i>
                     <span>Transaksi</span></a>
@@ -169,61 +169,33 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Admin / Transaksi</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Data master / Anggota</h1>
                     </div>
 
                     <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Transaksi Peminjaman dan pengembalian</h6>
+                        <div class="card-header py-3 d-flex justify-content-between">
+                            <h4 class="m-0 font-weight-bold text-primary">
+                                List Anggota
+                            </h4>
                         </div>
                         <div class="card-body">
-
-                            <div class="card shadow mb-4">
-                                <div class="card-header bg-success py-3">
-                                    <h6 class="m-0 font-weight-bold text-white">Peminjaman
-                                    </h6>
-                                </div>
-                                <div class="card-body">
-                                    <table id="dataTable" class="table table-bordered table-hover table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>No</th>
-                                                <th>Kode</th>
-                                                <th>Nama Peminjam</th>
-                                                <th>Tanggal Pinjam</th>
-                                                <th>Petugas</th>
-                                                <th>Jumlah</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="tbl1">
-                                        </tbody>
-                                    </table>
-                                </div>
+                            <div class="table">
+                                <table class="table table-bordered table-striped table-hover" id="dataTable"
+                                    width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Kode</th>
+                                            <th>Nama</th>
+                                            <th>Tempat Lahir</th>
+                                            <th>Tanggal Lahir</th>
+                                            <th>Jenis Kelamin</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tbl1">
+                                    </tbody>
+                                </table>
                             </div>
-
-                            <div class="card shadow mb-4">
-                                <div class="card-header bg-primary py-3">
-                                    <h6 class="m-0 font-weight-bold text-white">Pengembalian
-                                    </h6>
-                                </div>
-                                <div class="card-body">
-                                    <table id="dataTable1" class="table table-bordered table-hover table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>No</th>
-                                                <th>Kode</th>
-                                                <th>Nama Peminjam</th>
-                                                <th>Tanggal Pinjam</th>
-                                                <th>Petugas</th>
-                                                <th>Jumlah</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="tbl2">
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
                 </div>
@@ -287,59 +259,59 @@
     <script src="../../assets/js/datasource.js"></script>
 
     <script>
+        function descJK(jk = "") {
+            let result = "";
+            if (jk == "P" || jk == "p") result = "Perempuan";
+            else if (jk == "L" || jk == "l") result = "Laki - Laki";
+
+            return result;
+        }
+
+        function editHandle(id_anggota = null) {
+            const anggota = getAnggotaById(id_anggota);
+
+            const nama_lengkap = document.querySelector("#edit_nama_lengkap");
+            const tempat_lahir = document.querySelector("#edit_tempat_lahir");
+            const tanggal_lahir = document.querySelector("#edit_tanggal_lahir");
+            const jenis_kelamin = document.querySelector("#edit_jenis_kelamin");
+            const no_telepon = document.querySelector("#edit_no_telepon");
+            const alamat = document.querySelector("#edit_alamat");
+            nama_lengkap.value = anggota.FULL_NAME;
+            tempat_lahir.value = anggota.TMP_LAHIR;
+
+            const tgl = anggota.TGL_LAHIR.split("/");
+
+            tanggal_lahir.value = `${tgl[2]}-${tgl[0]}-${tgl[1]}`;
+            jenis_kelamin.value = anggota.GENDER;
+            no_telepon.value = anggota.TELP;
+            alamat.value = anggota.ALAMAT;
+        }
+
+        function deleteHandle(nama) {
+            document.querySelector(".isidelete").innerHTML = `<h4>Yakin akan menghapus data anggota <b>${nama}</b> .. ?</h4> `;
+        }
+
         const tbl1 = document.getElementById("tbl1");
-        const tbl2 = document.getElementById("tbl2");
         let strtbl = ``;
         let no = 0;
-        DataSource.peminjaman.slice().reverse().forEach(dtpeminjaman => {
-            if (dtpeminjaman.STATS != "Sudah Kembali") {
-                no++;
-                strtbl += `      
-                <tr>
-                                                <td>${no}</td>
-                                                <td>${dtpeminjaman.ID_PINJAM}</td>
-                                                <td>${getAnggotaById(dtpeminjaman.ID_ANGGOTA).FULL_NAME}</td>
-                                                <td>${dtpeminjaman.TGL_PINJAM}</td>
-                                                <td>${getAdminById(dtpeminjaman.ID_ADMIN).FULLNAME}</td>
-                                                <td>${dtpeminjaman.JML_BUKU}</td>
-                                            </tr>`;
-            }
+        DataSource.anggota.slice().reverse().forEach(dtbuku => {
+            no++;
+            strtbl += `                  <tr>
+                                            <td>${no}</td>
+                                            <td>${dtbuku.ID_ANGGOTA}</td>
+                                            <td>${dtbuku.FULL_NAME}</td>
+                                            <td>${dtbuku.TMP_LAHIR}</td>
+                                            <td>${dtbuku.TGL_LAHIR}</td>
+                                            <td>${descJK(dtbuku.GENDER)}</td>
+                                        </tr>`;
         });
 
         tbl1.innerHTML = strtbl;
-
-        strtbl = ``;
-        no = 0;
-        DataSource.peminjaman.slice().reverse().forEach(dtpeminjaman => {
-            if (dtpeminjaman.STATS == "Sudah Kembali") {
-                no++;
-                strtbl += `      
-                <tr>
-                                                <td>${no}</td>
-                                                <td>${dtpeminjaman.ID_PINJAM}</td>
-                                                <td>${getAnggotaById(dtpeminjaman.ID_ANGGOTA).FULL_NAME}</td>
-                                                <td>${dtpeminjaman.TGL_PINJAM}</td>
-                                                <td>${getAdminById(dtpeminjaman.ID_ADMIN).FULLNAME}</td>
-                                                <td>${dtpeminjaman.JML_BUKU}</td>
-                                            </tr>`;
-            }
-        });
-
-        tbl2.innerHTML = strtbl;
 
 
         // Call the dataTables jQuery plugin
         $(document).ready(function () {
             $('#dataTable').DataTable({
-                "paging": true,
-                "lengthChange": true,
-                "searching": true,
-                "ordering": true,
-                "info": true,
-                "autoWidth": true,
-                "responsive": true,
-            });
-            $('#dataTable1').DataTable({
                 "paging": true,
                 "lengthChange": true,
                 "searching": true,
