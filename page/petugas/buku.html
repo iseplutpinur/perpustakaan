@@ -70,25 +70,22 @@
                     <span>Buku</span></a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="petugas.html">
-                    <i class="fas fa-fw fa-user"></i>
-                    <span>Petugas</span></a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
             <!-- Heading -->
             <div class="sidebar-heading">
-                Admin
+                Petugas
             </div>
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="transaksi.html">
-                    <i class="fa fa-fw fa-copy"></i>
-                    <span>Transaksi</span></a>
+                <a class="nav-link" href="peminjaman.html">
+                    <i class="fa fa-fw fa-arrow-up"></i>
+                    <span>Peminjaman</span></a>
+            </li>
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link" href="pengembalian.html">
+                    <i class="fa fa-fw fa-arrow-down"></i>
+                    <span>Pengembalian</span></a>
             </li>
 
             <hr class="sidebar-divider d-none d-md-block">
@@ -177,8 +174,6 @@
                             <h4 class="m-0 font-weight-bold text-primary">
                                 List Buku
                             </h4>
-                            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modaltambah">Tambah
-                                Buku</a>
                         </div>
                         <div class="card-body">
                             <div class="table">
@@ -194,7 +189,6 @@
                                             <th>Tahun</th>
                                             <th>Jumlah</th>
                                             <th>Dipinjam</th>
-                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody id="tbl1">
@@ -250,154 +244,6 @@
         </div>
     </div>
 
-    <!-- Modal Tambah -->
-    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-        aria-hidden="true" id="modaltambah">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Tambah Data Buku</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="nama_buku">Nama Buku</label>
-                                    <input type="text" class="form-control" id="nama_buku"
-                                        aria-describedby="nama_buku_label" placeholder="Nama Buku">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="nama_penulis">Nama Penulis</label>
-                                    <input type="text" class="form-control" id="nama_penulis"
-                                        aria-describedby="nama_penulis_label" placeholder="Nama Penulis">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="penerbit">Penerbit</label>
-                                    <input type="text" class="form-control" id="penerbit"
-                                        aria-describedby="penerbit_label" placeholder="Penerbit">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="tahun">Tahun</label>
-                                    <input type="number" class="form-control" id="tahun" aria-describedby="tahun_label"
-                                        placeholder="Tahun">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="jumlah">Jumlah</label>
-                                    <input type="number" class="form-control" id="jumlah"
-                                        aria-describedby="jumlah_label" placeholder="Jumlah buku">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
-                        <a class="btn btn-primary" href="#">Tambah</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal Edit -->
-    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-        aria-hidden="true" id="ModalEdit">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="ModalEditLabel">Edit Data Buku</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="edit_nama_buku">Nama Buku</label>
-                                    <input type="text" class="form-control" id="edit_nama_buku"
-                                        aria-describedby="edit_nama_buku_label" placeholder="Nama Buku">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="edit_nama_penulis">Nama Penulis</label>
-                                    <input type="text" class="form-control" id="edit_nama_penulis"
-                                        aria-describedby="edit_nama_penulis_label" placeholder="Nama Penulis">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="edit_penerbit">Penerbit</label>
-                                    <input type="text" class="form-control" id="edit_penerbit"
-                                        aria-describedby="edit_penerbit_label" placeholder="Penerbit">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="edit_tahun">Tahun</label>
-                                    <input type="number" class="form-control" id="edit_tahun"
-                                        aria-describedby="tahun_label" placeholder="Tahun">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="edit_jumlah">Jumlah</label>
-                                    <input type="number" class="form-control" id="edit_jumlah"
-                                        aria-describedby="jumlah_label" placeholder="Jumlah buku">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
-                        <a class="btn btn-primary" href="#">Ubah</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- Modal Edit -->
-    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-        aria-hidden="true" id="ModalDelete">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="ModalDeleteLabel">Hapus Data Buku</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body isidelete">
-                    <div class="container-fluid">
-                        <h3>Yakin akan menghapus buku <b></b> .. ?</h3>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
-                    <a class="btn btn-danger" href="#">Hapus</a>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Bootstrap core JavaScript-->
     <script src="../../assets/vendor/jquery/jquery.min.js"></script>
@@ -450,14 +296,6 @@
                                             <td>${dtbuku.YEAR}</td>
                                             <td>${dtbuku.QTY}</td>
                                             <td>${dtbuku.KELUAR}</td>
-                                            <td>
-    <button class="btn btn-success btn-xs" onclick="editHandle('${dtbuku.ID_BUKU}')"  data-toggle="modal" data-target="#ModalEdit">
-        <i class="fa fa-edit"> Ubah</i>
-    </button>
-    <button class="btn btn-danger btn-xs" onclick="deleteHandle('${dtbuku.TITLE}')"  data-toggle="modal" data-target="#ModalDelete">
-        <i class="fa fa-trash"> Hapus</i>
-    </button>
-                                                </td>
                                         </tr>`;
         });
 
