@@ -32,7 +32,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="dashboard.html">
                 <div class="sidebar-brand-icon">
                     <i class="fa fa-book"></i>
                 </div>
@@ -44,7 +44,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="">
+                <a class="nav-link" href="dashboard.html">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -134,8 +134,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Isep Lutpi Nur</span>
-                                <img class="img-profile rounded-circle"
-                                    src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                                <img class="img-profile rounded-circle" src="../../assets/img/profile.jpg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -260,79 +259,143 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div class="row">
-                        <!-- Notif -->
-                        <form method="post" action="" id="demo-form2" data-parsley-validate=""
-                            class="form-horizontal form-label-left" enctype="multipart/form-data">
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nama Lengkap
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" name="nama_lengkap" class="form-control col-md-7 col-xs-12">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="nama_lengkap">Nama Lengkap</label>
+                                    <input type="text" class="form-control" id="nama_lengkap"
+                                        aria-describedby="nama_lengkap_label" placeholder="Nama Lengkap">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Tempat Lahir
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" name="tmp_lahir" class="form-control col-md-7 col-xs-12">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="tempat_lahir">Tempat Lahir</label>
+                                    <input type="text" class="form-control" id="tempat_lahir"
+                                        aria-describedby="tempat_lahir_label" placeholder="Tempat Lahir">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Tanggal Lahir
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" name="tgl_lahir" id="single_cal1"
-                                        class="form-control col-md-7 col-xs-12">
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="tanggal_lahir">Tanggal Lahir</label>
+                                    <input type="date" class="form-control" id="tanggal_lahir"
+                                        aria-describedby="tanggal_lahir_label" placeholder="Tempat Lahir">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Jenis Kelamin
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <select class="form-control" name="gender">
-                                        <option value="L">Laki-Laki</option>
-                                        <option value="P">Perempuan</option>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="jenisKelamin">Jenis Kelqmin</label>
+                                    <select class="form-control" id="jenisKelamin">
+                                        <option>Laki-Laki</option>
+                                        <option>Perempuan</option>
                                     </select>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">No. Telepon
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="number" name="telp" class="form-control col-md-7 col-xs-12">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="no_telepon">Nomor Telepon</label>
+                                    <input type="text" class="form-control" id="no_telepon"
+                                        aria-describedby="no_telepon_label" placeholder="Contoh: +6285798132505">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Alamat
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <textarea type="text" name="alamat"
-                                        class="form-control col-md-7 col-xs-12"></textarea>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Tempat Lahir
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="file" name="foto" class="form-control col-md-7 col-xs-12" required="">
-                                </div>
-                            </div>
-                            <div class="ln_solid"></div>
-                        </form>
-                    </div>
+                        </div>
 
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
-                    <a class="btn btn-primary" href="../login.html">Tambah</a>
+                        <div class="row">
+                            <div class="col-md">
+                                <div class="form-group">
+                                    <label for="alamat">Alamat Lengkap</label>
+                                    <textarea class="form-control" id="alamat" rows="3"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+                        <a class="btn btn-primary" href="#">Tambah</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Modal Edit -->
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true" id="ModalEdit">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ModalEditLabel">Edit Data Pengguna</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="edit_nama_lengkap">Nama Lengkap</label>
+                                    <input type="text" class="form-control" id="edit_nama_lengkap"
+                                        aria-describedby="edit_nama_lengkap_label" placeholder="Nama Lengkap">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="edit_tempat_lahir">Tempat Lahir</label>
+                                    <input type="text" class="form-control" id="edit_tempat_lahir"
+                                        aria-describedby="edit_tempat_lahir_label" placeholder="Tempat Lahir">
+                                </div>
+                            </div>
+                        </div>
 
 
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="edit_tanggal_lahir">Tanggal Lahir</label>
+                                    <input type="date" class="form-control" id="edit_tanggal_lahir"
+                                        aria-describedby="edit_tanggal_lahir_label" placeholder="Tempat Lahir">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="edit_jenis_kelamin">Jenis Kelqmin</label>
+                                    <select class="form-control" id="edit_jenis_kelamin">
+                                        <option value="L">Laki-Laki</option>
+                                        <option value="P">Perempuan</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="edit_no_telepon">Nomor Telepon</label>
+                                    <input type="text" class="form-control" id="edit_no_telepon"
+                                        aria-describedby="edit_no_telepon_label" placeholder="Contoh: +6285798132505">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md">
+                                <div class="form-group">
+                                    <label for="edit_alamat">Alamat Lengkap</label>
+                                    <textarea class="form-control" id="edit_alamat" rows="3"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+                        <a class="btn btn-primary" href="#">Edit</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <!-- Bootstrap core JavaScript-->
@@ -356,6 +419,26 @@
 
             return result;
         }
+
+        function editHandle(id_anggota = null) {
+            const anggota = getAnggotaById(id_anggota);
+
+            const nama_lengkap = document.querySelector("#edit_nama_lengkap");
+            const tempat_lahir = document.querySelector("#edit_tempat_lahir");
+            const tanggal_lahir = document.querySelector("#edit_tanggal_lahir");
+            const jenis_kelamin = document.querySelector("#edit_jenis_kelamin");
+            const no_telepon = document.querySelector("#edit_no_telepon");
+            const alamat = document.querySelector("#edit_alamat");
+            nama_lengkap.value = anggota.FULL_NAME;
+            tempat_lahir.value = anggota.TMP_LAHIR;
+
+            const tgl = anggota.TGL_LAHIR.split("/");
+
+            tanggal_lahir.value = `${tgl[2]}-${tgl[0]}-${tgl[1]}`;
+            jenis_kelamin.value = anggota.GENDER;
+            no_telepon.value = anggota.TELP;
+            alamat.value = anggota.ALAMAT;
+        }
         const tbl1 = document.getElementById("tbl1");
         let strtbl = ``;
         let no = 0;
@@ -369,17 +452,12 @@
                                             <td>${dtbuku.TGL_LAHIR}</td>
                                             <td>${descJK(dtbuku.GENDER)}</td>
                                             <td>
-
-
-                                                <a href="http://localhost/aplikasi/PerpustakaanCI/anggota/detail?idtf=AGT001" class="btn btn-info btn-xs">
-        <i class="fa fa-list"> View</i>
-    </a>
-    <a href="http://localhost/aplikasi/PerpustakaanCI/anggota/edit?idtf=AGT001" class="btn btn-success btn-xs">
+    <button class="btn btn-success btn-xs" onclick="editHandle('${dtbuku.ID_ANGGOTA}')"  data-toggle="modal" data-target="#ModalEdit">
         <i class="fa fa-edit"> Edit</i>
-    </a>
-    <a onclick="" href="#" class="btn btn-danger btn-xs">
+    </button>
+    <button class="btn btn-danger btn-xs">
         <i class="fa fa-trash"> Delete</i>
-    </a>
+    </button>
                                                 </td>
                                         </tr>`;
         });
