@@ -1049,3 +1049,17 @@ function getAdminById(id = false) {
     }
     return result;
 }
+
+function getIddDtailPinjam(ID_DIPINJAM = null) {
+    let result = null;
+    let counter = 0;
+    if (ID_DIPINJAM) {
+        DataSource.detail_pinjam.forEach(e => {
+            if (e.ID_DIPINJAM == ID_DIPINJAM) {
+                result = counter;
+            }
+            counter++;
+        });
+    }
+    return result;
+}
